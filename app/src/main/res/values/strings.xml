@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HITR181B</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="allopen">All functions have been opened.</string>
+    <string name="allclosed">All functions have been closed.</string>
+
+</resources>

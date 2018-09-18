@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_com_example_root_hitr181b_JNI_1AudioSwitch_JNI_1Set_
     LOGE("set buzzer");
     if(active == 1){
         LOGE("value: 1");
-        system("echo 1  > /sys/devices/platform/imx-i2c.2/i2c-2/2-0058/da9063-regulators/buzzer");
+        system("echo 1000  > /sys/devices/platform/imx-i2c.2/i2c-2/2-0058/da9063-regulators/buzzer");
     }else{
         LOGE("value: 0");
     }

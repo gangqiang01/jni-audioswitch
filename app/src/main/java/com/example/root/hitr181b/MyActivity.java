@@ -156,7 +156,7 @@ public class MyActivity extends Activity {
         });
 
         GetVPMtatusTimer = new Timer();
-        GetVPMtatusTimer.schedule(task,1000, 1000);
+        GetVPMtatusTimer.schedule(task,1000, 2000);
 
 
     }
@@ -166,8 +166,6 @@ public class MyActivity extends Activity {
             boolean[] active = new boolean[1];
 
             audiocontrol.Get_AdvCosensor(active);
-
-//            System.out.printf("cosensor is d%",active[0]);
             if(active[0]) {
                 Log.d("HIT-R181B", "cosensor_true");
                 Button_advcosensor.setActivated(false);

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.Button;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -22,14 +22,13 @@ public class MyActivity extends Activity {
     private int air_flag = 0;
     private int fan_flag = 0;
     private int regri_flag = 0;
-    private int advcosensor_flag = 0;
-    private  Button Button_allon;
-    private  Button Button_alloff;
-    private  Button Button_led;
-    private  Button Button_air;
-    private  Button Button_fan;
-    private  Button Button_regri;
-    private  Button Button_advcosensor;
+    private  ImageView ImageView_allon;
+    private  ImageView ImageView_alloff;
+    private  ImageView ImageView_led;
+    private ImageView ImageView_air;
+    private  ImageView ImageView_fan;
+    private  ImageView ImageView_regri;
+    private  ImageView ImageView_advcosensor;
     Timer GetVPMtatusTimer;
 
 
@@ -42,20 +41,20 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button_allon = (Button)findViewById(R.id.allon);
-        Button_alloff = (Button)findViewById(R.id.alloff);
-        Button_led = (Button)findViewById(R.id.led);
-        Button_air = (Button)findViewById(R.id.aircondition);
-        Button_fan = (Button)findViewById(R.id.fan);
-        Button_regri = (Button)findViewById(R.id.refrigerator);
-        Button_advcosensor = (Button)findViewById(R.id.cosensor);
+        ImageView_allon = (ImageView)findViewById(R.id.allon);
+        ImageView_alloff = (ImageView)findViewById(R.id.alloff);
+        ImageView_led = (ImageView)findViewById(R.id.led);
+        ImageView_air = (ImageView)findViewById(R.id.aircondition);
+        ImageView_fan = (ImageView)findViewById(R.id.fan);
+        ImageView_regri = (ImageView)findViewById(R.id.refrigerator);
+        ImageView_advcosensor = (ImageView)findViewById(R.id.cosensor);
 
 
 
 
         audiocontrol = new JNI_AudioSwitch();
 
-        Button_allon.setOnClickListener(new Button.OnClickListener()
+        ImageView_allon.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
 
@@ -67,7 +66,7 @@ public class MyActivity extends Activity {
                 toast.show();
             }
         });
-        Button_alloff.setOnClickListener(new Button.OnClickListener()
+        ImageView_alloff.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
                 audiocontrol.Set_AdvFan(true);
@@ -78,76 +77,76 @@ public class MyActivity extends Activity {
                 toast.show();
             }
         });
-        Button_air.setOnClickListener(new Button.OnClickListener()
+        ImageView_air.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
 
                 switch(air_flag){
                     case 0:
                         audiocontrol.Set_AdvAir(false);
-                        Button_air.setActivated(true);
+                        ImageView_air.setImageDrawable(getResources().getDrawable(R.drawable.airconditioner_reverse));
                         air_flag = 1;
                         break;
                     case 1:
                         audiocontrol.Set_AdvAir(true);
-                        Button_air.setActivated(false);
+                        ImageView_air.setImageDrawable(getResources().getDrawable(R.drawable.aircondition));
                         air_flag = 0;
                         break;
                 }
 
             }
         });
-        Button_led.setOnClickListener(new Button.OnClickListener()
+        ImageView_led.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
 
                 switch(led_flag){
                     case 0:
                         audiocontrol.Set_AdvLed(false);
-                        Button_led.setActivated(true);
+                        ImageView_led.setImageDrawable(getResources().getDrawable(R.drawable.led_reverse));
                         led_flag = 1;
                         break;
                     case 1:
                         audiocontrol.Set_AdvLed(true);
-                        Button_led.setActivated(false);
+                        ImageView_led.setImageDrawable(getResources().getDrawable(R.drawable.led));
                         led_flag = 0;
                         break;
                 }
 
             }
         });
-        Button_fan.setOnClickListener(new Button.OnClickListener()
+        ImageView_fan.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
 
                 switch(fan_flag){
                     case 0:
                         audiocontrol.Set_AdvFan(false);
-                        Button_fan.setActivated(true);
+                        ImageView_fan.setImageDrawable(getResources().getDrawable(R.drawable.fan_reverse));
                         fan_flag = 1;
                         break;
                     case 1:
                         audiocontrol.Set_AdvFan(true);
-                        Button_fan.setActivated(false);
+                        ImageView_fan.setImageDrawable(getResources().getDrawable(R.drawable.fan));
                         fan_flag = 0;
                         break;
                 }
 
             }
         });
-        Button_regri.setOnClickListener(new Button.OnClickListener()
+        ImageView_regri.setOnClickListener(new ImageView.OnClickListener()
         {
             public void onClick(View view) {
 
                 switch(regri_flag){
                     case 0:
                         audiocontrol.Set_AdvRegri(false);
-                        Button_regri.setActivated(true);
+                        ImageView_regri.setImageDrawable(getResources().getDrawable(R.drawable.refrigerator_reverse));
                         regri_flag = 1;
                         break;
                     case 1:
                         audiocontrol.Set_AdvRegri(true);
-                        Button_regri.setActivated(false);
+                        ImageView_regri.setImageDrawable(getResources().getDrawable(R.drawable.refrigerator));
                         regri_flag = 0;
                         break;
                 }
@@ -168,9 +167,10 @@ public class MyActivity extends Activity {
             audiocontrol.Get_AdvCosensor(active);
             if(active[0]) {
                 Log.d("HIT-R181B", "cosensor_true");
-                Button_advcosensor.setActivated(false);
+                ImageView_advcosensor.setImageDrawable(getResources().getDrawable(R.drawable.cosensor));
+                audiocontrol.Set_AdvBuzzer(false);
             }else{
-                Button_advcosensor.setActivated(true);
+                ImageView_advcosensor.setImageDrawable(getResources().getDrawable(R.drawable.cosensor_reverse));
                 Log.d("HIT-R181B", "cosensor_false");
                 audiocontrol.Set_AdvBuzzer(true);
             }

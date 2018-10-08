@@ -5,85 +5,76 @@
     android:orientation="vertical"
     android:gravity="center_vertical"
     >
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
+    <GridLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:rowCount="2"
+        android:columnCount="4"
         >
-        <Button
+        <ImageView
             android:id="@+id/allon"
-            android:text="All On"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:padding="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@drawable/allon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_margin="20dp"
             />
-        <Button
+        <ImageView
             android:id="@+id/alloff"
-            android:text="All Off"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:padding="8dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:src="@drawable/alloff"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_margin="20dp"
             />
-        <Button
+        <ImageView
             android:id="@+id/led"
-            android:text="LED"
-            android:padding="8dp"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:src="@drawable/led"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_margin="20dp"
             />
-        <Button
+        <ImageView
             android:id="@+id/fan"
-            android:text="Fan"
-            android:padding="8dp"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:src="@drawable/fan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_margin="20dp"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        >
-        <Button
+        <ImageView
             android:id="@+id/aircondition"
-            android:text="Air Condition"
-            android:padding="8dp"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@drawable/aircondition"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_margin="20dp"
             />
-        <Button
+        <ImageView
             android:id="@+id/refrigerator"
-            android:text="Refrigerator"
-            android:padding="8dp"
-            android:background="@drawable/button_shap"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:src="@drawable/refrigerator"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_margin="20dp"
             />
-        <Button
+        <ImageView
             android:id="@+id/cosensor"
-            android:text="CO Sensor"
-            android:padding="8dp"
-            android:background="@drawable/button_cosensor"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:src="@drawable/cosensor"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_margin="20dp"
             />
-    </LinearLayout>
+    </GridLayout>
 </LinearLayout>
-
